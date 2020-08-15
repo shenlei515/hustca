@@ -1,8 +1,2 @@
-shenlei@shenlei-Legion-Y7000-2019-PG0:~$ sudo -i//获取root权限，可以查找根目录下的文件
-[sudo] shenlei 的密码： 
-root@shenlei-Legion-Y7000-2019-PG0:~# find / -name 'capacity'//寻找capacity文件
-find: ‘/run/user/1000/gvfs’: 权限不够//不知道为什么获取了root权限之后还没有权限访问这一文件，但它也不是要找的文件
-/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:26/PNP0C09:00/PNP0C0A:00/power_supply/BAT0/capacity
-root@shenlei-Legion-Y7000-2019-PG0:~# cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:26/PNP0C09:00/PNP0C0A:00/power_supply/BAT0/capacity//获取capacity文件的内容
-97
-
+#!/bin/sh
+find 'sys' / -name 'capacity' 2>/dev/null | xargs cat
